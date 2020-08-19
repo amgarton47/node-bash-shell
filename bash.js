@@ -7,6 +7,7 @@ const echo = require("./commands/echo");
 const head = require("./commands/head");
 const tail = require("./commands/tail");
 const sort = require("./commands/sort");
+const wc = require("./commands/wc");
 
 const done = (output) => {
   process.stdout.write(output);
@@ -46,6 +47,9 @@ process.stdin.on("data", (data) => {
       break;
     case "sort":
       sort(done, arg);
+      break;
+    case "wc":
+      wc(done, arg);
       break;
     case "":
       process.stdout.write("prompt > ");
