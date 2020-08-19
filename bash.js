@@ -3,6 +3,7 @@ const ls = require("./commands/ls");
 const cat = require("./commands/cat");
 const curl = require("./commands/curl");
 const date = require("./commands/date");
+const echo = require("./commands/echo");
 
 const done = (output) => {
   process.stdout.write(output);
@@ -30,6 +31,9 @@ process.stdin.on("data", (data) => {
       break;
     case "date":
       date(done);
+      break;
+    case "echo":
+      echo(done, arg);
       break;
     case "":
       process.stdout.write("prompt > ");
