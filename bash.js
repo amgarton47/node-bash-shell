@@ -5,6 +5,7 @@ const curl = require("./commands/curl");
 const date = require("./commands/date");
 const echo = require("./commands/echo");
 const head = require("./commands/head");
+const tail = require("./commands/tail");
 
 const done = (output) => {
   process.stdout.write(output);
@@ -38,6 +39,9 @@ process.stdin.on("data", (data) => {
       break;
     case "head":
       head(done, arg);
+      break;
+    case "tail":
+      tail(done, arg);
       break;
     case "":
       process.stdout.write("prompt > ");
